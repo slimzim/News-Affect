@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Group Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
 </head>
 <body>
-    <h1>Title</h1>
+    
+    <h1>Headline Sentiment Sorting Project</h1>
+
+    <form role="form">
+                
+        <div class="form-group">
+            <label for="pwd">Category</label>
+            <select id="article-category" class="custom-select" aria-labelledby="dropdownMenuButton">
+            <option value="arts">Arts</option>
+            <option value="books">Books</option>
+            <option value="home" selected>Home</Gption>
+            <option value="movies">Movies</option>
+            <option value="politics">Politics</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+            <option value="travel">Travel</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+        <label for="pwd">Max Number of Articles:</label>
+        <select id="article-count" class="custom-select" aria-labelledby="dropdownMenuButton">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+        </select>
+        </div>
+        
+        <button type="submit" class="btn btn-default" id="run-search">
+        <i class="fa fa-search"></i> Search</button>
+        <button class="btn btn-default" id="clear-all">
+        <i class="fa fa-trash"></i> Clear Results</button>
+
+    </form>
+
+    <div id="article-section"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="javascript.js"></script>
+    
 </body>
 </html>
