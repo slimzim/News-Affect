@@ -30,7 +30,9 @@ $("#run-search").on("click", function(event){
         
         dataString = "{  \"documents\": [{ "
     
-    // This for loop does 2 things:
+        headlines = []
+         
+        // This for loop does 3 things:
 
         for (var i=0; i < articleCount; i++) {
 
@@ -40,8 +42,16 @@ $("#run-search").on("click", function(event){
             newArticle.html(articleResults[i].title)
             newArticle.appendTo("#article-section") 
             
+            // 2. Adds the headline to the headlines array, and gives that headline a value.  
+           
+            var newObject = {
+                title: articleResults[i].title,
+                url: articleResults[i].short_url
+            }
 
-            // 2. Creates a long string of data to be sent off to the Microsoft API using the abstract from each article.
+            headlines.push(newObject)
+           
+            // 3. Creates a long string of data to be sent off to the Microsoft API using the abstract from each article.
             // The if/else statement is there because the string needs to be closed properly at the end.
             // (notice the slight difference in syntax at the end of the two conditional statements)
 
@@ -72,8 +82,6 @@ $("#clear-all").on("click", function(event) {
 
 // ==============================================================================================
 
-
-
 // AJAX CALL TO MICROSOFT =======================================================================
 
 function callMicrosoftAPI(){
@@ -100,12 +108,55 @@ function callMicrosoftAPI(){
 
     $.ajax(microsoftObject).done(function (response) {
         console.log(response);
+    
+        for (var j=0; j < headlines.length; j++) {
+            var sentimentResults = response.documents
+            headlines[j].score = sentimentResults[j].score
+        }
+        
+        headlines.sort(function (a, b) {
+            return b.score - a.score;
+          });
+          console.log(headlines)
+
+        
+        for (k=0; k < headlines.length; k++){
+        
+        
+          if (headlines[k].score > .5 ) {
+              newArticleDiv = $("<div>")
+              newArticle = $("<a>")
+              newArticle.attr("href", headlines[k].url)
+              newArticle.attr("target", "_blank")
+              newArticle.html(headlines[k].title)
+              newArticle.appendTo(newArticleDiv)
+              newArticleDiv.appendTo("#positive-articles")
+           
+          }
+
+             else if(headlines[k].score === .5) {
+              newArticleDiv = $("<div>")
+              newArticle = $("<a>")
+              newArticle.attr("href", headlines[k].url)
+              newArticle.attr("target", "_blank")
+              newArticle.html(headlines[k].title)
+              newArticle.appendTo(newArticleDiv)
+              newArticleDiv.appendTo("#neutral-articles")
+
+          } else if (headlines[k].score < .5) {
+              newArticleDiv = $("<div>")
+              newArticle = $("<a>")
+              newArticle.attr("href", headlines[k].url)
+              newArticle.attr("target", "_blank")
+              newArticle.html(headlines[k].title)
+              newArticle.appendTo(newArticleDiv)
+              newArticleDiv.prependTo("#negative-articles")
+          }
+        }
     });
-
-// SORT AWAY!!!! ==================================================================================
-
-    // Sorting Code Goes Here!  
-
-// ================================================================================================
-
+        
 }
+
+$("clicked").on("click", function(){
+    console.log(this)
+})
