@@ -1,0 +1,11 @@
+#article-section {
+    display: none;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+td {
+    text-decoration: dotted;
+}
