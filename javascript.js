@@ -9,17 +9,20 @@ var microsoftAPIKeyJZ = "35cd207dc1msh4b912cdb51003fdp1d33f2jsnedb92f96eb4c"
 var headlines = []
 var favoriteHeadlines = []
 
+
 $(document).ready(updateFavorites);
 
 // ONCLICK FUNCTION FOR SEARCH
 
 $("#run-search").on("click", function(event){
     event.preventDefault();
+    var searchTerm = $("#search-term").val().trim()
+    console.log("Search Term: " + searchTerm)
 
     $("#article-section").empty();
     var topStoriesQueryURL = "https://api.nytimes.com/svc/topstories/v2/"
 
-    var articleCount = $("#article-count").val()
+    var articleMax = $("#article-max").val()
     var category = $("#article-category").val() 
 
     topStoriesQueryURL += category + ".json?api-key=" + NYTtopStoriesAPIKeyJZ
@@ -31,32 +34,36 @@ $("#run-search").on("click", function(event){
         method: "GET"
     }).then(function(results) {
         console.log(results)
+        
 
         var articleResults = results.results
-        
+        var articleCount = results.num_results
         var dataString = "{  \"documents\": [{ "
 
+        
+        
         headlines = []
-         
-        // This for loop does 3 things:
+        
+        // This for loop does 2 things:
 
         for (var i=0; i < articleCount; i++) {
 
-            // 1. Puts all the headlines from the NYT JSON into a <div>...
-
-            var newArticle = $("<div>");
-            newArticle.html(articleResults[i].title)
-            newArticle.appendTo("#article-section") 
-            
-            // 2. Adds the headline to the headlines array, and gives that headline a value.  
+            // 1. Adds the headline to the headlines array, and gives that headline a value.  
            
             var newObject = {
                 title: articleResults[i].title,
                 url: articleResults[i].short_url
             }
 
-            headlines.push(newObject)
-           
+            if (searchTerm && i+1 < articleCount && articleResults[i].title.includes(searchTerm)) {
+                console.log(searchTerm + " is in there")
+                headlines.push(newObject)
+            }
+            else if (!searchTerm){
+                headlines.push(newObject) 
+                console.log("No Search Term")
+            }
+            
             // 3. Creates a long string of data to be sent off to the Microsoft API using the abstract from each article.
             // The if/else statement is there because the string needs to be closed properly at the end.
             // (notice the slight difference in syntax at the end of the two conditional statements)
@@ -84,6 +91,7 @@ $("#clear-all").on("click", function(event) {
     event.preventDefault();
     $("#article-section").empty();
     $("#search-term").val("");
+    searchTerm = ""
 })
 
 // ==============================================================================================
