@@ -22,7 +22,8 @@ $("#run-search").on("click", function(event){
     $("#article-section").empty();
     var topStoriesQueryURL = "https://api.nytimes.com/svc/topstories/v2/"
 
-    var articleMax = $("#article-max").val()
+    var articleMax = $("#article-max").val();
+    console.log(articleMax)
     var category = $("#article-category").val() 
 
     topStoriesQueryURL += category + ".json?api-key=" + NYTtopStoriesAPIKeyJZ
@@ -38,10 +39,9 @@ $("#run-search").on("click", function(event){
 
         var articleResults = results.results
         var articleCount = results.num_results
+        var articleMaxCounter = 0
         var dataString = "{  \"documents\": [{ "
 
-        
-        
         headlines = []
         
         // This for loop does 2 things:
@@ -55,13 +55,19 @@ $("#run-search").on("click", function(event){
                 url: articleResults[i].short_url
             }
 
-            if (searchTerm && i+1 < articleCount && articleResults[i].title.includes(searchTerm)) {
-                console.log(searchTerm + " is in there")
+            if (!searchTerm && !articleMax) {
                 headlines.push(newObject)
             }
-            else if (!searchTerm){
-                headlines.push(newObject) 
-                console.log("No Search Term")
+
+            else if (!searchTerm && articleMaxCounter < articleMax) {
+                headlines.push(newObject)
+                articleMaxCounter++
+            }
+
+            else if (searchTerm && i+1 < articleCount && articleResults[i].title.includes(searchTerm) && articleMaxCounter < articleMax) {
+                console.log("Pushing")
+                headlines.push(newObject)
+                articleMaxCounter++
             }
             
             // 3. Creates a long string of data to be sent off to the Microsoft API using the abstract from each article.
