@@ -27,10 +27,19 @@
         </div>
 
         <div class="form-group">
+            <label for="search">Search Term (Optional):</label>
+            <input type="text" class="form-control" id="search-term" placeholder="e.g. Trump">
+        </div>
+
+
+
+
+        <div class="form-group">
             <label for="pwd">Max Number of Articles:</label>
-            <select id="article-count" class="custom-select" aria-labelledby="dropdownMenuButton">
+            <select id="article-max" class="custom-select" aria-labelledby="dropdownMenuButton">
+                <option value="" selected>No Maximum</option>
                 <option value="5">5</option>
-                <option value="10" selected>10</option>
+                <option value="10">10</option>
                 <option value="20">20</option>
             </select>
         </div>
