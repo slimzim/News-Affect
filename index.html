@@ -5,56 +5,120 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Group Project</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="stylesheet.css">
+    
+    <!-- Bootstrap version 4.5 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="style.css"/>
+
 </head>
+
 <body class="mx-3">
-    <h1>Headline Sentiment Sorting Project</h1>
 
-    <form class="mb-4" role="form">
-        <div class="form-group">
-            <label for="pwd">Category</label>
-            <select id="article-category" class="custom-select" aria-labelledby="dropdownMenuButton">
-            <option value="arts">Arts</option>
-            <option value="books">Books</option>
-            <option value="home" selected>Home</Gption>
-            <option value="movies">Movies</option>
-            <option value="politics">Politics</option>
-            <option value="science">Science</option>
-            <option value="sports">Sports</option>
-            <option value="technology">Technology</option>
-            <option value="travel">Travel</option>
-            </select>
-        </div>
+    <!-- main container for all content -->
+    <div class-="container-fluid">
 
-        <div class="form-group">
-            <label for="pwd">Max Number of Articles:</label>
-            <select id="article-count" class="custom-select" aria-labelledby="dropdownMenuButton">
-                <option value="5">5</option>
-                <option value="10" selected>10</option>
-                <option value="20">20</option>
-            </select>
-        </div>
         
-        <button type="submit" class="btn btn-default" id="run-search">
-        <i class="fa fa-search"></i> Search</button>
-        <button class="btn btn-default" id="clear-all">
-        <i class="fa fa-trash"></i> Clear Results</button>
-    </form>
 
-    <!-- <h2>Original Articles</h2>
-    <div id="article-section"></div> -->
+        <h1>The News Affect</h1>
 
-    <h2>Favorites</h2>
-    <ul class="list-group" id="favorite-articles"></ul>
-    <h2>Positive Articles</h2>
-    <ul class="list-group" id="positive-articles"></ul>
-    <h2>Neutral Articles</h2>
-    <ul class="list-group" id="neutral-articles"></ul>
-    <h2>Negative Articles</h2>
-    <ul class="list-group" id="negative-articles"></ul>
+        <h3>. . . The news feed for your soul</h3>
+
+        <p id="date"></p>
+        <hr>
+   
+        <nav class="navbar navbar-expand-xl navbar-light">
+            
+            <button type="submit" class="btn btn-light run-search" value="home">Home</button>
+            <button type="submit" class="btn btn-light run-search" value="arts">Arts</button>
+            <button type="submit" class="btn btn-light run-search" value="science">Science</button>
+            <button type="submit" class="btn btn-light run-search" value="movies">Movies</button>
+            <button type="submit" class="btn btn-light run-search" value="politics">Politics</button>
+            <button type="submit" class="btn btn-light run-search" value="sports">Sports</button>
+            <button type="submit" class="btn btn-light run-search" value="travel">Travel</button>
+            <button type="submit" class="btn btn-light run-search" value="books">Books</button>
+            <button type="submit" class="btn btn-light run-search" value="technology">Technology</button>
+            
+
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+        </nav>
+
+        <hr>
+
+        <!-- original articles (hidden) -->
+        <div id="article-section"></div>
+
+        <div class="row">
+
+            <table class="table table-bordered col-md-9">
+
+                <thead class="thead" id="table1">
+                    <tr>
+                        <th>Positive</th>
+                        <i class="glyphicon glyphicon-pushpin"></i>
+                        <th>Neutral</th>
+                        <th>Negative</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                        <td>
+                            <ul class="list-group" id="positive-articles"></ul>
+                        </td>
+
+                        <td>
+                            <ul class="list-group" id="neutral-articles"></ul>
+                        </td>
+
+                        <td>
+                            <ul class="list-group" id="negative-articles"></ul>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+
+
+            <table class="table table-bordered col-md-3">
+
+                <thead class="thead-light">
+
+                    <th id="favs">Favorites</th>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <ul class="fav-group" id="favorite-articles"></ul>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div> <!-- End of row -->
+        
+    </div>  <!-- end of main container -->   
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="javascript.js"></script>
 
 </body>
 

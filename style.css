@@ -1,29 +1,102 @@
 @font-face {
-    font-family: Title;
+    font-family: Dark;
     src: url(../group-project-1/Images/Impact\ Label.ttf)
-  }
+}
 
-#article-section {
-    display: none;
+@font-face {
+font-family: Light;
+src: url(../group-project-1/Images/ImpactLabelReversed.ttf)
+}
+
+@font-face {
+    font-family: Script;
+    src: url(../group-project-1/Images/OldLondon.ttf)
+}
+
+@font-face {
+    font-family: Demode;
+    src: url(../group-project-1/Images/Demode.ttf)
+}
+
+@font-face {
+    font-family: OldEnglish;
+    src: url(../group-project-1/Images/Old_Englished_Boots.ttf)
+}
+
+@font-face {
+    font-family: CandL;
+    src: url(../group-project-1/Images/Champagne\ &\ Limousines\ Italic.ttf)
+}
+
+@font-face {
+    font-family: CandLbold;
+    src: url(../group-project-1/Images/Champagne\ &\ Limousines\ Bold.ttf)
+}
+
+@font-face {
+    font-family: LiveNews;
+    src: url(../group-project-1/Images/LiveNews.ttf)
 }
 
 h1 {
     margin-top: 50px;
-    margin-bottom: 25px;
     text-align: center;
-    font-family: Title;
-    font-size: 100px;
+    font-family: OldEnglish;
+    font-size: 125px;
+}
+
+#date {
+    font-size: smaller;
+}
+
+nav.navbar {
+    background-color: white;
+}
+
+.btn {
+    background-color: white;
+    padding-left: 45px;
+    padding-right: 25px;
+    font-size: 25px;
+}
+
+button.my-2{
+    background-color: black;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
 }
 
 h3 {
+    font-family: CandL;
     text-align: center;
     margin-bottom: 50px;
 }
 
-th {
-    text-align: center;
+thead {
+    font-family: CandLbold;
+    font-size: 45px;
 }
 
-button {
-    align-content: center;
+th {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+#favs {
+    background-color: white;
+    color: black;
+}
+
+h2 {
+    margin-top: 50px;
+    font-family: LiveNews;
+    font-size: 50px;
+}
+
+#article-section {
+    display: none;
 }
