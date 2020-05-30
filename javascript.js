@@ -26,13 +26,13 @@ $(".run-search").on("click", function(event){
 
     var articleCount = $("#article-count").val()
     var category = $(this).val() 
-/*
+
     var searchTerm = $("#search-term").val().trim()
     console.log("Search Term: " + searchTerm)
 
     $("#article-section").empty();
     var topStoriesQueryURL = "https://api.nytimes.com/svc/topstories/v2/"
-
+/*
     var articleMax = $("#article-max").val();
     console.log(articleMax)
     var category = $("#article-category").val() 
