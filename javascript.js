@@ -1,5 +1,10 @@
-var d = new Date();
-document.getElementById("date").innerHTML = d;
+// Today's date (weekday, month, day, year)
+var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+var today  = new Date();
+
+
+document.getElementById("today").innerHTML = today.toLocaleDateString("en-US", options);
+
 
 // API KEYS ==================================================================
 
@@ -26,13 +31,13 @@ $(".run-search").on("click", function(event){
 
     var articleCount = $("#article-count").val()
     var category = $(this).val() 
-/*
+
     var searchTerm = $("#search-term").val().trim()
     console.log("Search Term: " + searchTerm)
 
     $("#article-section").empty();
     var topStoriesQueryURL = "https://api.nytimes.com/svc/topstories/v2/"
-
+/*
     var articleMax = $("#article-max").val();
     console.log(articleMax)
     var category = $("#article-category").val() 

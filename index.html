@@ -10,6 +10,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <!-- Bootstrap version 4.5 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -29,25 +32,38 @@
 
         <h3>. . . The news feed for your soul</h3>
 
-        <p id="date"></p>
+        <p id="today"></p>
+
         <hr>
    
-        <nav class="navbar navbar-expand-xl navbar-light">
+        <nav class="navbar navbar-expand-xl navbar-outline-none">
             
-            <button type="submit" class="btn btn-light run-search" value="home">Home</button>
-            <button type="submit" class="btn btn-light run-search" value="arts">Arts</button>
-            <button type="submit" class="btn btn-light run-search" value="science">Science</button>
-            <button type="submit" class="btn btn-light run-search" value="movies">Movies</button>
-            <button type="submit" class="btn btn-light run-search" value="politics">Politics</button>
-            <button type="submit" class="btn btn-light run-search" value="sports">Sports</button>
-            <button type="submit" class="btn btn-light run-search" value="travel">Travel</button>
-            <button type="submit" class="btn btn-light run-search" value="books">Books</button>
-            <button type="submit" class="btn btn-light run-search" value="technology">Technology</button>
-            
+            <div class="categories" role="group">
+                <button type="submit" class="btn btn-outline-none run-search" value="home">Home</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="arts">Arts</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="science">Science</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="movies">Movies</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="politics">Politics</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="sports">Sports</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="travel">Travel</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="books">Books</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="technology">Technology</button>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-none">Max # of Articles
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">5</a>
+                  <a href="#">10</a>
+                  <a href="#">20</a>
+                </div>
+              </div>
 
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" id="search-term" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark my-2 my-sm-0 submit" type="submit">Search</button>
             </form>
 
         </nav>
@@ -63,10 +79,9 @@
 
                 <thead class="thead" id="table1">
                     <tr>
-                        <th>Positive</th>
-                        <i class="glyphicon glyphicon-pushpin"></i>
+                        <th><i class="fas fa-plus"></i> Positive</th>
                         <th>Neutral</th>
-                        <th>Negative</th>
+                        <th>Negative <i class="fas fa-minus"></i></th>
                     </tr>
                 </thead>
 
@@ -89,13 +104,12 @@
                 </tbody>
 
             </table>
-
-
+            
             <table class="table table-bordered col-md-3">
 
-                <thead class="thead-light">
+                <thead class="thead-outline-none">
 
-                    <th id="favs">Favorites</th>
+                    <th id="favs">Favorites <i class="fas fa-thumbtack"></i></th>
 
                 </thead>
 
