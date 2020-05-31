@@ -1,5 +1,10 @@
-var d = new Date();
-document.getElementById("date").innerHTML = d;
+// Today's date (weekday, month, day, year)
+var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+var today  = new Date();
+
+
+document.getElementById("today").innerHTML = today.toLocaleDateString("en-US", options);
+
 
 // API KEYS ==================================================================
 

@@ -32,21 +32,24 @@
 
         <h3>. . . The news feed for your soul</h3>
 
-        <p id="date"></p>
+        <p id="today"></p>
+
         <hr>
    
         <nav class="navbar navbar-expand-xl navbar-outline-none">
             
-            <button type="submit" class="btn btn-outline-none run-search" value="home">Home</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="arts">Arts</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="science">Science</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="movies">Movies</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="politics">Politics</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="sports">Sports</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="travel">Travel</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="books">Books</button>
-            <button type="submit" class="btn btn-outline-none run-search" value="technology">Technology</button>
-            
+            <div class="categories" role="group">
+                <button type="submit" class="btn btn-outline-none run-search" value="home">Home</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="arts">Arts</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="science">Science</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="movies">Movies</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="politics">Politics</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="sports">Sports</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="travel">Travel</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="books">Books</button>
+                <button type="submit" class="btn btn-outline-none run-search" value="technology">Technology</button>
+            </div>
+
             <div class="dropdown">
                 <button class="btn btn-outline-none">Max # of Articles
                   <i class="fa fa-caret-down"></i>
@@ -60,7 +63,7 @@
 
             <form class="form-inline">
                 <input class="form-control mr-sm-2" id="search-term" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-dark my-2 my-sm-0 submit" type="submit">Search</button>
             </form>
 
         </nav>
