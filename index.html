@@ -38,7 +38,9 @@
    
         <nav class="navbar navbar-expand-xl navbar-outline-none">
             
-            <div class="categories" role="group">
+            <!-- NAVBAR BUTTONS-->
+
+            <!-- <div class="categories" role="group">
                 <button type="submit" class="btn btn-outline-none run-search" value="home">Home</button>
                 <button type="submit" class="btn btn-outline-none run-search" value="arts">Arts</button>
                 <button type="submit" class="btn btn-outline-none run-search" value="science">Science</button>
@@ -48,9 +50,28 @@
                 <button type="submit" class="btn btn-outline-none run-search" value="travel">Travel</button>
                 <button type="submit" class="btn btn-outline-none run-search" value="books">Books</button>
                 <button type="submit" class="btn btn-outline-none run-search" value="technology">Technology</button>
+            </div> -->
+
+            <!-- CATEGORY DROPDOWN -->
+
+            <div class="form-group">
+                <label for="pwd">Category</label>
+                <select id="article-category" class="custom-select" aria-labelledby="dropdownMenuButton">
+                <option value="home" selected>Home</option>
+                <option value="arts">Arts</option>
+                <option value="books">Books</option>
+                <option value="movies">Movies</option>
+                <option value="politics">Politics</option>
+                <option value="science">Science</option>
+                <option value="sports">Sports</option>
+                <option value="technology">Technology</option>
+                <option value="travel">Travel</option>
+                </select>
             </div>
 
-            <div class="dropdown">
+            <!-- KATIE MAX ARTICLES DROPDOWN -->
+
+            <!-- <div class="dropdown">
                 <button class="btn btn-outline-none">Max # of Articles
                   <i class="fa fa-caret-down"></i>
                 </button>
@@ -59,12 +80,37 @@
                   <a href="#">10</a>
                   <a href="#">20</a>
                 </div>
-              </div>
+            </div> -->
 
-            <form class="form-inline">
+            <!-- MAX ARTICLES DROPDOWN -->
+
+            <div class="form-group">
+                <label for="pwd">Max Number of Articles:</label>
+                <select id="article-max" class="custom-select" aria-labelledby="dropdownMenuButton">
+                    <option value="" selected>No Maximum</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+
+            <!-- KATIE SEARCH BUTTON -->
+            <!-- <form class="form-inline">
                 <input class="form-control mr-sm-2" id="search-term" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-dark my-2 my-sm-0 submit" type="submit">Search</button>
-            </form>
+            </form> -->
+
+            <div class="form-group">
+                <label for="search">Search Term (Optional):</label>
+                <input type="text" class="form-control" id="search-term" placeholder="e.g. Trump">
+            </div>
+
+            <button type="submit" class="btn btn-default" id="run-search">
+                <i class="fa fa-search"></i> Search</button>
+                <button class="btn btn-default" id="clear-all">
+                <i class="fa fa-trash"></i> Clear Results</button>
+
+
 
         </nav>
 
