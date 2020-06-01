@@ -1,5 +1,12 @@
-// API KEYS ==================================================================
 
+// Today's date (weekday, month, day, year)
+var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+var today  = new Date();
+
+
+document.getElementById("today").innerHTML = today.toLocaleDateString("en-US", options);
+
+// API KEYS ==================================================================
 var NYTtopStoriesAPIKeyJZ = "RWfhB4SgHGOUTaVyo2DRZJlCqM7fb9iW"
 var microsoftAPIKeyJZ = "35cd207dc1msh4b912cdb51003fdp1d33f2jsnedb92f96eb4c"
 
