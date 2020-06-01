@@ -54,7 +54,7 @@
 
             <!-- CATEGORY DROPDOWN -->
 
-            <div class="form-group">
+            <div class="form-group" id="cat">
                 <label for="pwd">Category</label>
                 <select id="article-category" class="custom-select" aria-labelledby="dropdownMenuButton">
                 <option value="home" selected>Home</option>
@@ -84,7 +84,7 @@
 
             <!-- MAX ARTICLES DROPDOWN -->
 
-            <div class="form-group">
+            <div class="form-group" id="max">
                 <label for="pwd">Max Number of Articles:</label>
                 <select id="article-max" class="custom-select" aria-labelledby="dropdownMenuButton">
                     <option value="" selected>No Maximum</option>
@@ -100,14 +100,14 @@
                 <button class="btn btn-dark my-2 my-sm-0 submit" type="submit">Search</button>
             </form> -->
 
-            <div class="form-group">
+            <div class="form-group" id="search">
                 <label for="search">Search Term (Optional):</label>
                 <input type="text" class="form-control" id="search-term" placeholder="e.g. Trump">
             </div>
 
             <button type="submit" class="btn btn-default" id="run-search">
                 <i class="fa fa-search"></i> Search</button>
-                <button class="btn btn-default" id="clear-all">
+                <button class="btn btn-dark" id="clear-all">
                 <i class="fa fa-trash"></i> Clear Results</button>
 
 

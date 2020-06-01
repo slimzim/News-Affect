@@ -51,23 +51,27 @@ h1 {
 
 nav.navbar {
     background-color: white;
+    justify-content: center;
+}
+
+.form-group {
+    margin-right: 50px;
 }
 
 .btn {
-    background-color: white;
-    font-size: 25px;
-    margin-left: 8px;
-    margin-right: 13px;
-}
-
-button.submit{
     background-color: black;
+    color: white;
+    font-size: 25px;
+    margin-right: 50px;
 }
 
 .btn:hover {
     background-color: red;
 }
 
+
+
+/*
 .dropdown-content {
     display: none;
     position: absolute;
@@ -76,8 +80,8 @@ button.submit{
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-  
-  .dropdown-content a {
+
+    .dropdown-content a {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -93,6 +97,7 @@ button.submit{
   .dropdown:hover .dropdown-content {
     display: block;
 }
+*/
 
 input {
     margin-left: 10px;
