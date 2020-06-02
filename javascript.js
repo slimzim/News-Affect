@@ -15,6 +15,7 @@ var microsoftAPIKeyJZ = "35cd207dc1msh4b912cdb51003fdp1d33f2jsnedb92f96eb4c"
 // Global Variables
 var headlines = []
 var favoriteHeadlines = []
+var searchTerm = ""
 
 
 $(document).ready(updateFavorites);
@@ -60,11 +61,17 @@ $("#run-search").on("click", function(event){
         for (var i=0; i < articleCount; i++) {
             
             // 1. Adds the headline to the headlines array, and gives that headline a value.  
-           
+
+
             var newObject = {
                 title: articleResults[i].title,
                 url: articleResults[i].short_url
             }
+
+            lowerCaseTitle = articleResults[i].title.toLowerCase()
+            console.log(lowerCaseTitle)
+            lowerCaseSearchTerm = searchTerm.toLowerCase()
+            
 
             if (!searchTerm && !articleMax) {
                 headlines.push(newObject)
@@ -75,7 +82,7 @@ $("#run-search").on("click", function(event){
                 articleMaxCounter++
             }
 
-            else if (searchTerm && i+1 < articleCount && articleResults[i].title.includes(searchTerm) && articleMaxCounter < articleMax) {
+            else if (searchTerm && i+1 < articleCount && lowerCaseTitle.includes(lowerCaseSearchTerm) && articleMaxCounter < articleMax) {
                 headlines.push(newObject)
                 articleMaxCounter++
             }
@@ -95,8 +102,8 @@ $("#run-search").on("click", function(event){
     
         // The dataString variable is finished, so let's send it to Microsoft!
 
-        callMicrosoftAPI(dataString)
-
+        callMicrosoftAPI(dataString, searchTerm)
+        
     })
 })
 
@@ -118,8 +125,7 @@ $("#clear-all").on("click", function(event) {
 
 // AJAX CALL TO MICROSOFT =======================================================================
 
-function callMicrosoftAPI(dataString){
-
+function callMicrosoftAPI(dataString, searchTerm){
     // This is the object containing all of the information for the AJAX call.
     // Notice how all of that annoying data is contained in that tidy little dataString variable :) 
 
@@ -152,21 +158,67 @@ function callMicrosoftAPI(dataString){
         headlines.sort(function (a, b) {
             return b.score - a.score;
         });
+
+        positiveArticleCount = 0
+        neutralArticleCount = 0
+        negativeArticleCount = 0
           
         for (k=0; k < headlines.length; k++) {
             if (headlines[k].score > .5 ) {
                 var newArticleDiv = createHeadlineDiv(headlines[k]);
                 newArticleDiv.appendTo("#positive-articles")
+                positiveArticleCount++
             }
             else if(headlines[k].score === .5) {
                 var newArticleDiv = createHeadlineDiv(headlines[k]);
                 newArticleDiv.appendTo("#neutral-articles")
+                neutralArticleCount++
 
             } else if (headlines[k].score < .5) {
                 var newArticleDiv = createHeadlineDiv(headlines[k]);
                 newArticleDiv.prependTo("#negative-articles")
+                negativeArticleCount++
             }
         }
+
+        // This code tallies the articles and prints "no articles" in the appropriate column if that is the case.
+
+        if (!searchTerm && positiveArticleCount === 0) {
+            noPositives = $("<p>")
+            noPositives.text("No positive articles!")
+            noPositives.appendTo("#positive-articles")
+        }
+
+        else if (positiveArticleCount === 0) {
+            noPositives = $("<p>")
+            noPositives.text("No positive articles containing \"" + searchTerm + "\"")
+            noPositives.appendTo("#positive-articles")
+        }
+
+        if (!searchTerm && neutralArticleCount === 0) {
+            noNeutrals = $("<p>")
+            noNeutrals.text("No neutral articles!")
+            noNeutrals.appendTo("#neutral-articles")
+        }
+
+        else if (searchTerm && neutralArticleCount === 0) {
+            noNeutrals = $("<p>")
+            noNeutrals.text("No neutral articles containing \"" + searchTerm + "\"")
+            noNeutrals.appendTo("#neutral-articles")
+        }
+
+        if (negativeArticleCount === 0) {
+            noNegatives = $("<p>")
+            noNegatives.text("No negative articles containing \"" + searchTerm + "\"")
+            noNegatives.appendTo("#negative-articles")
+        }
+
+        else if (!searchTerm && negativeArticleCount === 0) {
+            noNegatives = $("<p>")
+            noNegatives.text("No negative articles!")
+            noNegatives.appendTo("#negative-articles")
+        }
+
     });    
 }
 
@@ -244,5 +296,3 @@ function updateFavorites() {
         favArticleDiv.appendTo("#favorite-articles")
     }
 }
-
-
