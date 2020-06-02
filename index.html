@@ -21,12 +21,10 @@
 
 </head>
 
-<body class="mx-3">
+<body>
 
     <!-- main container for all content -->
-    <div class-="container-fluid">
-
-        
+    <div class="container-fluid">
 
         <h1>The News Affect</h1>
 
@@ -34,7 +32,7 @@
 
         <p id="today"></p>
 
-        <hr>
+        <div class="row" id="border"></div>
    
         <nav class="navbar navbar-expand-xl navbar-outline-none">
             
@@ -100,7 +98,7 @@
                 <button class="btn btn-dark my-2 my-sm-0 submit" type="submit">Search</button>
             </form> -->
 
-            <div class="form-group" id="search">
+            <div class="form-group" id="searchform">
                 <label for="search">Search Term (Optional):</label>
                 <input type="text" class="form-control" id="search-term" placeholder="e.g. Trump">
             </div>
@@ -114,14 +112,14 @@
 
         </nav>
 
-        <hr>
+        <div class="row" id="border"></div>
 
         <!-- original articles (hidden) -->
         <div id="article-section"></div>
 
         <div class="row">
 
-            <table class="table table-bordered col-md-9">
+            <table class="table table-bordered col-md-8">
 
                 <thead class="thead" id="table1">
                     <tr>
@@ -153,7 +151,7 @@
             
             <table class="table table-bordered col-md-3">
 
-                <thead class="thead-outline-none">
+                <thead class="thead">
 
                     <th id="favs">Favorites <i class="fas fa-thumbtack"></i></th>
 
@@ -176,6 +174,20 @@
         </div> <!-- End of row -->
         
     </div>  <!-- end of main container -->   
+
+    <div class="footer">
+
+        <a id="about" href="about.html">About</a>
+
+        <p id="copy">Copyright &copy</p>
+
+        <p id="logo">
+            <a href="https://developer.nytimes.com/">
+             <img alt="NYTlogo" src="https://developer.nytimes.com/files/poweredby_nytimes_150c.png?v=1568441068237">
+             </a>
+         </p>
+
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="javascript.js"></script>
