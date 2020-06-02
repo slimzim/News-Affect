@@ -101,6 +101,11 @@ h3 {
     margin-bottom: 50px;
 }
 
+
+.fas {
+    font-size: 0.4em;
+}
+
 thead {
     font-family: CandLbold;
     border: solid black;
