@@ -1,21 +1,21 @@
 @font-face {
     font-family: OldEnglish;
-    src: url(../group-project-1/Images/Old_Englished_Boots.ttf)
+    src: url(../News-Affect/Images/Old_Englished_Boots.ttf)
 }
 
 @font-face {
     font-family: CandL;
-    src: url(../group-project-1/Images/Champagne\ &\ Limousines\ Italic.ttf)
+    src: url(../News-Affect/Images/Champagne\ &\ Limousines\ Italic.ttf)
 }
 
 @font-face {
     font-family: CandLbold;
-    src: url(../group-project-1/Images/Champagne\ &\ Limousines\ Bold.ttf)
+    src: url(../News-Affect/Images/Champagne\ &\ Limousines\ Bold.ttf)
 }
 
 @font-face {
     font-family: LiveNews;
-    src: url(../group-project-1/Images/LiveNews.ttf)
+    src: url(../News-Affect/Images/LiveNews.ttf)
 }
 
 .container-fluid {
